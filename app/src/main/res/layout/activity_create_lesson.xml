@@ -181,20 +181,33 @@
                 android:layout_marginBottom="10dp"
                 />
 
-            <Button
-                android:id="@+id/add_note_add_file_button_id"
-                android:layout_width="wrap_content"
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/add_note_link_google_map_layout"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/add_node_set_category_spinner_id"
-                android:layout_marginBottom="14dp"
-                android:letterSpacing="0"
-                android:onClick="addFile"
-                android:text="add_node_add_file_button_text"
-                android:textAllCaps="false"
-                android:textSize="16sp" />
+                android:layout_below="@+id/add_node_set_category_spinner_id"
+
+                app:boxCornerRadiusTopEnd="5dp"
+                app:boxCornerRadiusTopStart="5dp"
+                android:inputType="textMultiLine"
+                app:boxBackgroundColor="@color/white"
+                android:hint="add_google_map_link_edit_text"
+                android:textSize="16dp"
+                android:layout_marginBottom="10dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/add_note_link_google_map_layout_edit_text_view_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textMultiLine"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <RelativeLayout
-                android:layout_below="@+id/add_note_add_file_button_id"
+                android:layout_below="@+id/add_note_link_google_map_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
