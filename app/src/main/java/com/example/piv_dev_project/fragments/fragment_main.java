@@ -10,11 +10,6 @@ import android.view.ViewGroup;
 
 import com.example.piv_dev_project.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link fragment_main#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class fragment_main extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -30,15 +25,6 @@ public class fragment_main extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment fragment_main.
-     */
-    // TODO: Rename and change types and number of parameters
     public static fragment_main newInstance(String param1, String param2) {
         fragment_main fragment = new fragment_main();
         Bundle args = new Bundle();

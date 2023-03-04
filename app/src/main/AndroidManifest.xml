@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Piv_dev_project"
         tools:targetApi="31">
         <activity
+            android:name=".AddGroupActivity"
+            android:exported="false" />
+        <activity
             android:name=".ViewLessonActivity"
             android:exported="false" />
         <activity
