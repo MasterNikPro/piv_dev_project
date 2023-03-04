@@ -13,7 +13,14 @@ import android.widget.Toast;
 
 import com.example.piv_dev_project.MainActivity;
 import com.example.piv_dev_project.R;
+import com.example.piv_dev_project.user.ProfessorNetwork;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = "MyApp";
@@ -22,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText password_register;
     private Button button_register;
     private FirebaseAuth mAuth;
+    private FirebaseFirestore db;
     ActionBar toolbar;
 
     @Override
@@ -29,10 +37,11 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         mAuth = FirebaseAuth.getInstance();
-
+        db=FirebaseFirestore.getInstance();
         email_register = findViewById(R.id.editTextTextEmailAddress);
         password_register = findViewById(R.id.editTextTextPassword);
         button_register = findViewById(R.id.register_btn);
+        name_professor=findViewById(R.id.editTextTextNameProfessor);
 
         toolbar = getSupportActionBar();
         TypedValue typedValue = new TypedValue();
@@ -54,6 +63,13 @@ public class RegisterActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
 
                                 Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                               // intent.putExtra("professorname",name_professor.getText());
+                                ProfessorNetwork tempprof= new ProfessorNetwork(name_professor.getText(),mAuth.getCurrentUser().getUid().toString(),new ArrayList<>());
+                                Map<String, Object> data = new HashMap<>();
+                               data.put("name",tempprof.getName());
+                               data.put("uid",tempprof.getId());
+                               data.put("groups",new ArrayList<>());
+                                db.collection(mAuth.getCurrentUser().getUid()).document("professor").collection("info").add(data);
                                 startActivity(intent);
                             } else {
                                 Log.w(TAG, "createUserWithEmail:failure", task.getException());
