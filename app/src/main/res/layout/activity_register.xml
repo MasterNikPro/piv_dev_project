@@ -6,15 +6,16 @@
     android:layout_height="match_parent"
     android:paddingTop="48dp"
     android:background="@color/background"
-    android:padding="17dp">
+    >
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="272dp"
-
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="55dp"
         android:layout_marginBottom="84dp"
-        android:scaleType="center"
+
         app:srcCompat="@drawable/logo" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -29,7 +30,8 @@
             app:boxBackgroundColor="@color/white"
             android:theme="@style/MyTextInputLayout_overlay"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
-
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
 
             android:inputType="text" >
 
@@ -58,7 +60,8 @@
             android:theme="@style/MyTextInputLayout_overlay"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
 
-
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:inputType="textEmailAddress" >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -68,7 +71,7 @@
                 android:layout_marginBottom="10dp"
                 android:fontFamily="@font/roboto_slab"
                 android:inputType="textEmailAddress"
-                android:hint="Email"/>
+                android:hint="Введіть ваш email"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,9 +89,9 @@
             android:theme="@style/MyTextInputLayout_overlay"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
 
-
-
-            android:inputType="textPassword"  >
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:inputType="textPassword">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editTextTextPassword"
@@ -96,12 +99,14 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:fontFamily="@font/roboto_slab"
-                android:hint="Password"/>
+                android:hint="Пароль"/>
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <Button
-            android:layout_marginTop="28dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="18dp"
             android:id="@+id/register_btn"
             android:layout_width="match_parent"
             android:layout_height="60dp"
