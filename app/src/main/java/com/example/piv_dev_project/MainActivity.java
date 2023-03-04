@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             currentUser.reload();
-            Intent intent = new Intent(this, MainActivity.class);
+
         } else {
             Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
             startActivity(intent);
