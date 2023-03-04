@@ -5,46 +5,50 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".group.AddGroupDialog"
+    android:background="@color/background"
     android:padding="16dp">
 
     <TextView
+        android:fontFamily="@font/roboto_slab_bold"
         android:id="@+id/add_new_group_title_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="add_new_group_dialog_title_text"
+        android:text="@string/add_new_group_dialog_title_text"
         android:textSize="20sp" />
 
     <TextView
+        android:fontFamily="@font/roboto_slab"
         android:id="@+id/add_new_group_set_namegroup_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/add_new_group_title_text_view"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="8dp"
-        android:text="add_new_group_set_name_group_text"
+        android:text="@string/add_new_group_set_name_group_text"
         android:textSize="16sp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/add_new_group_set_namegroup_layout"
-
+        android:fontFamily="@font/roboto_slab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/add_new_group_set_namegroup_text_view"
         android:layout_centerHorizontal="true"
         android:ems="10"
+        android:theme="@style/MyTextInputLayout_overlay"
         app:boxCornerRadiusTopEnd="5dp"
         app:boxCornerRadiusTopStart="5dp"
         app:boxBackgroundColor="@color/white"
-
-
-        android:hint="namegrop_reg"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+        android:hint="@string/add_new_group_dialog_title_text_hint"
         android:inputType="textEmailAddress" >
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/add_new_group_set_namegroup_edit_text"
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
+            android:fontFamily="@font/roboto_slab"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"/>
 
