@@ -8,7 +8,7 @@
     <item
         android:id="@+id/map_classes_menu_item"
         android:icon="@drawable/outline_account_circle_24"
-        android:title="@string/title_dashboard" />
+        android:title="Мапа" />
 
     <item
         android:id="@+id/settings_classes_menu_item"
