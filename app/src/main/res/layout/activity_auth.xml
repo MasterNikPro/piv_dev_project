@@ -8,16 +8,15 @@
     tools:context=".auth.AuthActivity">
 
 
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="272dp"
-
-
+        android:layout_marginTop="45dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="55dp"
         android:layout_marginBottom="84dp"
-        android:scaleType="center"
+
         app:srcCompat="@drawable/logo" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -51,7 +50,7 @@
     <Button
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_marginTop="18dp"
+
         android:id="@+id/auth_confirm_id_button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
