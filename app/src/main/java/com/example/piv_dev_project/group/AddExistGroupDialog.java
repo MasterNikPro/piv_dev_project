@@ -16,7 +16,10 @@ import com.example.piv_dev_project.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Random;
 
 public class AddExistGroupDialog extends AppCompatDialogFragment {
 
@@ -50,17 +53,12 @@ public class AddExistGroupDialog extends AppCompatDialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         idExistGroupStr = Objects.requireNonNull(idExistGroup.getText()).toString();
-                        class Lol{
-                            String friend;
-
-                            public String getFriend() {
-                                return friend;
-                            }
-                            Lol(String friend){
-                                this.friend =friend;
-                            }
-                        }
-                        Lol ab= new Lol(idExistGroupStr.toString());
+                        Map<String, Object> data = new HashMap<>();
+                        int randomNum = new Random().nextInt((99999 - 10000) + 1) + 10000;
+                        data.put("uid", randomNum);
+                        data.put("name",idExistGroupStr);
+                        db.collection(""+randomNum).document().collection("Group").add(data);
+                        //db.collection(""+randomNum).add(data);
 
                         //db.collection("friends"+ MainActivity.getUser().getUser().getUid().toString()).add(ab);
 
