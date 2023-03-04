@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterActivity extends AppCompatActivity {
     private static final String TAG = "MyApp";
-
+    private EditText name_professor;
     private EditText email_register;
     private EditText password_register;
     private Button button_register;
@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         getTheme().resolveAttribute(androidx.appcompat.R.attr.colorAccent, typedValue, true);
         int titleColor = typedValue.data;
 
-        //  toolbar.hide();
+        //toolbar.hide();
 
         button_register.setOnClickListener(v -> {
             if (email_register.getText().toString().isEmpty() || password_register.getText().toString().isEmpty()) {

@@ -15,8 +15,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     static FirebaseUser currentUser;
-    public static NavController navCo;
     private BottomNavigationView bottomNavigationView;
+    private static NavController navCo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

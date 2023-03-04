@@ -4,21 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="48dp">
+    android:paddingTop="48dp"
+    android:padding="17dp">
 
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/all_content_layout"
-        android:paddingRight="17dp"
-        android:paddingLeft="17dp">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/registr_name_input_edit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/registr_email_input_edit_layout"
+            android:ems="10"
+            app:boxCornerRadiusTopEnd="5dp"
+            app:boxCornerRadiusTopStart="5dp"
+
+            app:boxBackgroundColor="@color/white"
+
+            android:inputType="textEmailAddress" >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextTextNameProfessor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:inputType="textEmailAddress"
+                android:hint="Прізвище та ім'я"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/registr_email_input_edit_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
             android:ems="10"
             app:boxCornerRadiusTopEnd="5dp"
             app:boxCornerRadiusTopStart="5dp"
@@ -68,7 +86,6 @@
             android:layout_below="@id/registr_password_input_text_layout"
             android:textSize="20sp"
             android:text="Зарееструватись"/>
-    </RelativeLayout>
 
 
 
