@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.piv_dev_project.R;
+import com.example.piv_dev_project.clasess.MainActivityClass;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class AuthActivity extends AppCompatActivity {
@@ -28,7 +29,8 @@ public class AuthActivity extends AppCompatActivity {
         enterIdGroupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(AuthActivity.this, MainActivityClass.class);
+                startActivity(intent);
             }
         });
 
