@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 
+import com.example.piv_dev_project.auth.AuthActivity;
 import com.example.piv_dev_project.auth.RegisterActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -69,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             currentUser.reload();
 
         } else {
-            Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+            Intent intent = new Intent(MainActivity.this, AuthActivity.class);
             startActivity(intent);
         }
     }

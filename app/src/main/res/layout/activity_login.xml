@@ -6,4 +6,79 @@
     android:layout_height="match_parent"
     tools:context=".auth.LoginActivity">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_layout_email_input_edit_text"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        app:boxBackgroundColor="@color/white"
+
+        android:hint="email_field_reg"
+        android:inputType="textEmailAddress" >
+
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/editTextTextEmailAddressLogin"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_password_input_edit_layout"
+        android:layout_width="match_parent"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        app:boxBackgroundColor="@color/white"
+
+
+        android:layout_height="60dp"
+        android:layout_below="@+id/login_layout_email_input_edit_text"
+        android:ems="10"
+        android:hint="password_field_reg"
+        android:inputType="textPassword"
+        android:layout_marginBottom="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextTextPasswordLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/login_recovery_password_text_view"
+        android:text="login_recovery_password_text"
+        android:layout_below="@+id/login_password_input_edit_layout"
+        android:layout_marginBottom="8dp"
+        />
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/login_password_input_edit_layout"
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="16dp"
+        android:text="login_button"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_btn"
+        android:layout_centerHorizontal="true"
+        android:text="registration_text" />
+
 </RelativeLayout>
