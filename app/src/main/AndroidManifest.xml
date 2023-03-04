@@ -12,7 +12,10 @@
         android:theme="@style/Theme.Piv_dev_project"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivityGroup"
+            android:name=".clasess.lesson.LessonViewClasses"
+            android:exported="false" />
+        <activity
+            android:name=".clasess.MainActivityClass"
             android:exported="false" />
         <activity
             android:name=".group.AddExistGroupDialog"

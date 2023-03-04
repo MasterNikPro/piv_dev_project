@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_classes"
+    app:startDestination="@id/fragment_classes_main">
+
+    <fragment
+        android:id="@+id/fragment_classes_main"
+        android:name="com.example.piv_dev_project.clasess.group_fragments.fragment_classes_main"
+        android:label="fragment_classes_main"
+        tools:layout="@layout/fragment_classes_main" >
+        <action
+            android:id="@+id/action_fragment_classes_main_to_frarment_classes_maps"
+            app:destination="@id/frarment_classes_maps" />
+        <action
+            android:id="@+id/action_fragment_classes_main_to_fragment_classes_settings"
+            app:destination="@id/fragment_classes_settings" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_classes_settings"
+        android:name="com.example.piv_dev_project.clasess.group_fragments.fragment_classes_settings"
+        android:label="fragment_classes_settings"
+        tools:layout="@layout/fragment_classes_settings" >
+        <action
+            android:id="@+id/action_fragment_classes_settings_to_frarment_classes_maps"
+            app:destination="@id/frarment_classes_maps" />
+        <action
+            android:id="@+id/action_fragment_classes_settings_to_fragment_classes_main"
+            app:destination="@id/fragment_classes_main" />
+    </fragment>
+    <fragment
+        android:id="@+id/frarment_classes_maps"
+        android:name="com.example.piv_dev_project.clasess.group_fragments.fragment_classes_maps"
+        android:label="fragment_frarment_classes_maps"
+        tools:layout="@layout/fragment_classes_maps" >
+        <action
+            android:id="@+id/action_frarment_classes_maps_to_fragment_classes_main"
+            app:destination="@id/fragment_classes_main" />
+        <action
+            android:id="@+id/action_frarment_classes_maps_to_fragment_classes_settings"
+            app:destination="@id/fragment_classes_settings" />
+    </fragment>
+</navigation>
