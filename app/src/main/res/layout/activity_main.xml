@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".MainActivity">
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -22,9 +23,19 @@
         android:background="@color/bottomnav"
         app:menu="@menu/bottom_nav_menu"
         />
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        style="@style/MyToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/buttons"
 
+        app:title="Toolbar"
+        app:titleTextColor="@color/background"
+        tools:ignore="MissingConstraints" />
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
+        android:paddingTop="?attr/actionBarSize"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
