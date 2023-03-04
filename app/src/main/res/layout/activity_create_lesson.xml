@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/add_note_name_action_text_view_id"
                 android:layout_marginBottom="10dp"
-                android:hint="add_node_name_action_edit_text"
+                android:hint="Назва заняття"
 
                 android:textSize="13sp"
                 app:boxBackgroundColor="@color/white"
@@ -58,8 +58,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/add_note_set_title_input_layout"
-                android:text="add_node_description_text"
-                android:textSize="16dp" />
+                android:hint="Опис"
+                android:textSize="16sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/add_note_set_description_input_layout"
@@ -71,7 +71,7 @@
                 app:boxCornerRadiusTopStart="5dp"
                 android:inputType="textMultiLine"
                 app:boxBackgroundColor="@color/white"
-                android:hint="add_node_description_edit_text"
+                android:hint="Опис"
                 android:textSize="16dp"
                 android:layout_marginBottom="10dp"
                 >
@@ -102,7 +102,7 @@
                         android:id="@+id/add_node_date_text_view_id"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="add_node_date_text"
+                        android:text="Дата"
                         android:textSize="16dp" />
 
                     <TextView
@@ -129,7 +129,7 @@
                         android:id="@+id/add_node_time_text_view_id"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="add_node_time_text"
+                        android:text="Час"
                         android:textSize="16dp" />
 
                     <TextView
@@ -152,7 +152,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/data_time_linear_layout"
                 android:layout_marginBottom="8dp"
-                android:text="add_node_friend_text"
+                android:text="Группа"
                 android:textSize="16dp" />
 
             <Spinner
@@ -170,7 +170,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/add_node_set_friend_spinner_id"
                 android:layout_marginBottom="8dp"
-                android:text="add_node_category_text"
+                android:text="Посилання на місце проведення"
                 android:textSize="16dp" />
 
             <Spinner
@@ -192,7 +192,7 @@
                 app:boxCornerRadiusTopStart="5dp"
                 android:inputType="textMultiLine"
                 app:boxBackgroundColor="@color/white"
-                android:hint="add_google_map_link_edit_text"
+                android:hint="силка"
                 android:textSize="16dp"
                 android:layout_marginBottom="10dp"
                 >
@@ -221,7 +221,7 @@
 
                     android:letterSpacing="0"
                     android:onClick="add"
-                    android:text="add_node_add_node_button_text"
+                    android:text="Додати заняття"
                     android:textAllCaps="false"
                     android:textSize="16sp" />
 
@@ -233,7 +233,7 @@
                     android:layout_marginBottom="2dp"
                     android:onClick="cancel"
                     android:layout_below="@+id/add_note_save_note_button"
-                    android:text="add_node_cancel_button_text"
+                    android:text="Скасувати"
                     android:textSize="16dp" />
             </RelativeLayout>
 
