@@ -1,8 +1,10 @@
-package com.example.piv_dev_project;
+package com.example.piv_dev_project.lesson;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.piv_dev_project.R;
 
 public class AddGroupActivity extends AppCompatActivity {
 
