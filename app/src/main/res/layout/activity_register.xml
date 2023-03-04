@@ -7,7 +7,15 @@
     android:paddingTop="48dp"
     android:background="@color/background"
     android:padding="17dp">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="272dp"
 
+        android:layout_marginLeft="55dp"
+        android:layout_marginBottom="84dp"
+        android:scaleType="center"
+        app:srcCompat="@drawable/logo" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/registr_name_input_edit_layout"
