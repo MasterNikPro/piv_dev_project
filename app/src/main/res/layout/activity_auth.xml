@@ -6,6 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".auth.AuthActivity">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/auth_id_group_input_edit_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        android:layout_centerInParent="true"
 
+        app:boxBackgroundColor="@color/white"
+
+        android:inputType="numberDecimal" >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editTextTextIdGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:inputType="text"
+            android:hint="Введіть код доступу"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:layout_marginTop="28dp"
+        android:id="@+id/auth_confirm_id_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@id/auth_id_group_input_edit_layout"
+        android:textSize="20sp"
+        android:text="Зарееструватись"/>
+
+    <TextView
+        android:id="@+id/auth_text_view_professor"
+        android:layout_below="@+id/auth_confirm_id_button"
+        android:text="Я вчитель"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
