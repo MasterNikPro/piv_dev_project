@@ -1,11 +1,14 @@
 package com.example.piv_dev_project;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 
 import com.example.piv_dev_project.auth.RegisterActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -15,6 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     static FirebaseUser currentUser;
+    private Toolbar toolbar;
     private BottomNavigationView bottomNavigationView;
     private static NavController navCo;
     @Override
@@ -29,21 +33,25 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitle("Ваші лекції");
+
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
                     navCo.navigate(R.id.fragment_main);
-                    //toolbar.setTitle(Html.fromHtml("<b><font face = '' color='" + titleColor + "'>Ваші справи</font></b>"));
+                    toolbar.setTitle("Ваші лекції");
 
                     return true;
                 case R.id.navigation_dashboard:
                     navCo.navigate(R.id.fragment_groups);
-                    //toolbar.setTitle(Html.fromHtml("<b><font face = '' color='" + titleColor + "'>Список учасників</font></b>"));
+                    toolbar.setTitle("Ваші групи");
 
                     return true;
                 case R.id.navigation_notifications:
                     navCo.navigate(R.id.fragment_settings);
-                    //toolbar.setTitle(Html.fromHtml("<b><font face = '' color='" + titleColor + "'>Налаштування</font></b>"));
+                    toolbar.setTitle("Налаштування");
 
                     return true;
 
