@@ -14,6 +14,7 @@ import android.view.View;
 
 import com.example.piv_dev_project.R;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -26,6 +27,7 @@ public class AddExistGroupDialog extends AppCompatDialogFragment {
     private TextInputEditText idExistGroup;
     private String idExistGroupStr;
     FirebaseFirestore db;
+    FirebaseAuth mAuth;
 
     private AddFriendListener listener;
 
@@ -33,6 +35,7 @@ public class AddExistGroupDialog extends AppCompatDialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        mAuth=FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
@@ -58,6 +61,8 @@ public class AddExistGroupDialog extends AppCompatDialogFragment {
                         data.put("uid", randomNum);
                         data.put("name",idExistGroupStr);
                         db.collection(""+randomNum).document().collection("Group").add(data);
+
+                       // db.collection(mAuth.getCurrentUser().getUid()).document("professor").collection("info").
                         //db.collection(""+randomNum).add(data);
 
                         //db.collection("friends"+ MainActivity.getUser().getUser().getUid().toString()).add(ab);

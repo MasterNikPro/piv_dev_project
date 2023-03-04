@@ -2,12 +2,14 @@ package com.example.piv_dev_project.user;
 
 import android.text.Editable;
 
+import com.example.piv_dev_project.lesson.GroupClass;
+
 import java.util.List;
 
 public class ProfessorNetwork extends ProfessorClass{
     String  id;
-    List<Integer> groups;
-    public ProfessorNetwork(Editable name, String id, List<Integer> groups) {
+    List<GroupClass> groups;
+    public ProfessorNetwork(String name, String id, List<GroupClass> groups) {
         super(String.valueOf(name));
         this.id = id;
         this.groups = groups;
@@ -17,7 +19,7 @@ public class ProfessorNetwork extends ProfessorClass{
         return id;
     }
 
-    public List<Integer> getGroups() {
+    public List<GroupClass> getGroups() {
         return groups;
     }
 }
