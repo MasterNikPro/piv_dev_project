@@ -6,10 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     tools:context=".auth.AuthActivity">
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="272dp"
 
 
 
@@ -37,8 +33,6 @@
 
         android:layout_centerInParent="true"
         android:fontFamily="@font/roboto_slab"
-
-
         android:inputType="numberDecimal" >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -47,8 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:inputType="text"
-android:layout_marginLeft="10dp"
-android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:fontFamily="@font/roboto_slab"
             android:hint="Введіть код доступу"/>
 
