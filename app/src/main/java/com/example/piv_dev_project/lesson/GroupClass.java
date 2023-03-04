@@ -8,4 +8,5 @@ public class GroupClass {
         this.name = name;
         this.uid = uid;
     }
+
 }
