@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, MainActivity.class);
         } else {
             Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
-             startActivity(intent);
+            startActivity(intent);
         }
     }
 }
