@@ -32,17 +32,17 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView.setOnItemSelectedListener(item -> {
             switch (item.getItemId()) {
-                case R.id.calendar_item:
+                case R.id.navigation_home:
                     navCo.navigate(R.id.fragment_main);
                     //toolbar.setTitle(Html.fromHtml("<b><font face = '' color='" + titleColor + "'>Ваші справи</font></b>"));
 
                     return true;
-                case R.id.friends_item:
+                case R.id.navigation_dashboard:
                     navCo.navigate(R.id.fragment_groups);
                     //toolbar.setTitle(Html.fromHtml("<b><font face = '' color='" + titleColor + "'>Список учасників</font></b>"));
 
                     return true;
-                case R.id.settings_item:
+                case R.id.navigation_notifications:
                     navCo.navigate(R.id.fragment_settings);
                     //toolbar.setTitle(Html.fromHtml("<b><font face = '' color='" + titleColor + "'>Налаштування</font></b>"));
 
