@@ -46,7 +46,10 @@ public class FragmentGroupAdapter extends ArrayAdapter<ProfessorNetwork> {
         copy= listItem.findViewById(R.id.copy);
         delete=listItem.findViewById(R.id.delete);
         groupname=listItem.findViewById(R.id.group_name);
-        groupname.setText(data.get(position).getGroups().get(position).getName());
+        if(!data.get(position).getGroups().get(position).getName().isEmpty()){
+            groupname.setText(data.get(position).getGroups().get(position).getName());
+        }
+
         copy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

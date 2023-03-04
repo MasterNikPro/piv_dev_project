@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 
 public class fragment_groups extends Fragment {
@@ -59,22 +61,21 @@ public class fragment_groups extends Fragment {
                     String name = documentSnapshot.getString("name");
                     String  uid = documentSnapshot.getString("uid");
                     List<String> names= (List<String>) documentSnapshot.get("groupsname");
-                    List<String> uids= (List<String>) documentSnapshot.get("groupsuid");
+                    List<String> uids= (List<String>) documentSnapshot.get("groupuid");
                     List<GroupClass> groups=new ArrayList<>();
-                    for (int i=0;i<names.size();i++){
+                        for (int i = 0; i< (names != null ? Objects.requireNonNull(names).size() : 0); i++){
                         assert uids != null;
                         groups.add(new GroupClass(names.get(i),uids.get(i)));
                     }
-
                     groupClasses.add(new ProfessorNetwork(name,uid,groups));
                     // ...
                 }
             }
         });
-        if(!groupClasses.isEmpty()){
+
             FragmentGroupAdapter adapter= new FragmentGroupAdapter(getActivity(),  groupClasses);
             groupList.setAdapter(adapter);
-        }
+
 
         addNewGroupFOB.setOnClickListener(new View.OnClickListener() {
             @Override

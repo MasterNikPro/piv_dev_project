@@ -69,7 +69,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 data.put("uid", tempprof.getId());
                                 data.put("groupsname", new ArrayList<String>());
                                 data.put("groupuid", new ArrayList<Integer>());
-                                db.collection(mAuth.getCurrentUser().getUid()).document("professor").set(data);
+                                db.collection(mAuth.getCurrentUser().getUid()).document("professor").collection("info").add(data);
                                 startActivity(intent);
                             } else {
                                 Log.w(TAG, "createUserWithEmail:failure", task.getException());
