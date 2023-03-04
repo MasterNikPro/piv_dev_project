@@ -81,7 +81,7 @@ public class AddGroupDialog extends AppCompatDialogFragment {
         try {
             listener = (AddGroupDialog.AddFriendListener) context;
         } catch (ClassCastException e) {
-            throw new ClassCastException();
+            System.out.println(e.getMessage());
         }
 
     }
