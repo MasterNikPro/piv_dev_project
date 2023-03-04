@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.piv_dev_project.auth.RegisterActivity;
-import com.example.piv_dev_project.user.ProfessorClass;
-import com.example.piv_dev_project.user.ProfessorNetwork;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -28,9 +26,8 @@ public class MainActivity extends AppCompatActivity {
         currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
             currentUser.reload();
-            ProfessorNetwork user= new ProfessorNetwork("Hui","Zalupa",currentUser.getUid());
-        } else {
 
+        } else {
             Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
             startActivity(intent);
         }
