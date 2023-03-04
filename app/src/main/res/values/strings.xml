@@ -8,7 +8,7 @@
 
 
     <string name="add_exist_group_dialog_title_text">Додати існуючу групу</string>
-    <string name="add_exist_group_set_name_group_text">Введіть назву групи</string>
+    <string name="add_exist_group_set_name_group_text">Введіть код групи</string>
     <string name="name_exist_grop_reg">Назва групи</string>
     <string name="name_exist_grop_reg_hint">Код існуючої групи</string>
 
