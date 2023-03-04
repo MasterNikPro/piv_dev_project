@@ -5,4 +5,28 @@
     <string name="title_home">Головна</string>
     <string name="title_dashboard">Групи</string>
     <string name="title_notifications">Налаштування</string>
+
+
+    <string name="add_exist_group_dialog_title_text">Додати існуючу групу</string>
+    <string name="add_exist_group_set_name_group_text">Введіть назву групи</string>
+    <string name="name_exist_grop_reg">Назва групи</string>
+    <string name="name_exist_grop_reg_hint">Код існуючої групи</string>
+
+    <string name="add_new_group_dialog_title_text">Створити нову групу</string>
+    <string name="add_new_group_set_name_group_text">Введіть назву нової групи</string>
+    <string name="add_new_group_dialog_title_text_hint">Введіть назву групи</string>
+
+    <string name="settings_edit_email_text">Змінити email</string>
+    <string name="settings_edit_email_edit_text_hint">Введіть новий email</string>
+    <string name="settings_save_email_button_txt">Зберегти новий email</string>
+
+    <string name="settings_edit_password_text">Змінити пароль</string>
+    <string name="settings_edit_password_edit_text_hint">Введіть новий пароль</string>
+    <string name="settings_check_password_hint">Повторіть пароль</string>
+    <string name="settings_save_password_button_txt">Зберегти новий пароль</string>
+    <string name="settings_logout_button">Вийти з акаунту</string>
+
+
+
+
 </resources>
