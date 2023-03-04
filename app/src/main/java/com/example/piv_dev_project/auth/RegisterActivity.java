@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity {
         getTheme().resolveAttribute(androidx.appcompat.R.attr.colorAccent, typedValue, true);
         int titleColor = typedValue.data;
 
-        toolbar.hide();
+        //  toolbar.hide();
 
         button_register.setOnClickListener(v -> {
             if (email_register.getText().toString().isEmpty() || password_register.getText().toString().isEmpty()) {
