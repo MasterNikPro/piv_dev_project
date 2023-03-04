@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".auth.AuthActivity">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -13,9 +14,13 @@
         android:ems="10"
         app:boxCornerRadiusTopEnd="5dp"
         app:boxCornerRadiusTopStart="5dp"
-        android:layout_centerInParent="true"
-
         app:boxBackgroundColor="@color/white"
+        android:theme="@style/MyTextInputLayout_overlay"
+        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/roboto_slab"
+
 
         android:inputType="numberDecimal" >
 
@@ -25,23 +30,31 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:inputType="text"
+android:layout_marginLeft="10dp"
+android:layout_marginRight="10dp"
+            android:fontFamily="@font/roboto_slab"
             android:hint="Введіть код доступу"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:layout_marginTop="28dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="18dp"
         android:id="@+id/auth_confirm_id_button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@id/auth_id_group_input_edit_layout"
         android:textSize="20sp"
-        android:text="Зарееструватись"/>
+        android:fontFamily="@font/roboto_slab"
+        android:text="Увійти за кодом"/>
 
     <TextView
+        android:layout_marginTop="8dp"
         android:id="@+id/auth_text_view_professor"
         android:layout_below="@+id/auth_confirm_id_button"
-        android:text="Я вчитель"
+        android:text="Я вчитель >"
+        android:fontFamily="@font/roboto_slab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"/>
