@@ -24,8 +24,9 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class CreateLessonActivity extends AppCompatActivity {
-    TextInputLayout title;
-    TextInputLayout description;
+    TextInputEditText title;
+    TextInputEditText description;
+    TextInputEditText room;
     TextView time;
     TextView date;
     Spinner group;
@@ -63,9 +64,9 @@ public class CreateLessonActivity extends AppCompatActivity {
         add=findViewById(R.id.add_note_save_note_button);
         cancel=findViewById(R.id.add_note_cancel_text_view);
         db = FirebaseFirestore.getInstance();
-
         time = findViewById(R.id.add_node_time_view_id);
         date = findViewById(R.id.add_node_date_view_id);
+        room=findViewById(R.id.add_note_location_edit_text_view_id);
         time.setText(DateUtils.formatDateTime(this,
                 dateAndTime.getTimeInMillis(),
                 DateUtils.FORMAT_SHOW_TIME));
@@ -80,7 +81,7 @@ public class CreateLessonActivity extends AppCompatActivity {
     }
 
     public void add(View view) {
-
+        LessonClass temp= new LessonClass(title.getText().toString(),room.getText().toString(),description.getText().toString(),date.getText().toString(),time.getText().toString(),group.getTransitionName(),link.getText().toString());
        // db.collection(MainActivity.getUser().getUser().getUid()).add(addingElement);
         Intent intent = new Intent(CreateLessonActivity.this, MainActivity.class);
         startActivity(intent);
