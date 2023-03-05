@@ -92,13 +92,22 @@ public class CreateLessonActivity extends AppCompatActivity {
     }
 
     public void add(View view) {
-        String group = "";
+        String groupName = "";
+        String groupId = "";
         if (lessonSpinnerAdapter.getCheckedGroups().size() != 0) {
             for (int i = 0; i < lessonSpinnerAdapter.getCheckedGroups().size(); i++) {
-                group += lessonSpinnerAdapter.getCheckedGroups().get(i) + ",";
+                groupName += lessonSpinnerAdapter.getCheckedGroups().get(i) + ",";
+            }
+
+            for (GroupClass groupClass : fragment_groups.groupClasses) {
+                if (groupClass.getName().equals(groupName)) {
+                    groupId = groupClass.getUid();
+                }
             }
         }
-        LessonClass temp= new LessonClass(title.getText().toString(),room.getText().toString(),description.getText().toString(),date.getText().toString(),time.getText().toString(),group,link.getText().toString());
+
+
+        LessonClass temp = new LessonClass(title.getText().toString(),room.getText().toString(),description.getText().toString(),date.getText().toString(),time.getText().toString(),groupName,link.getText().toString());
        // db.collection(MainActivity.getUser().getUser().getUid()).add(addingElement);
         Intent intent = new Intent(CreateLessonActivity.this, MainActivity.class);
         startActivity(intent);

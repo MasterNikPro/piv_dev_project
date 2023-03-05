@@ -31,6 +31,7 @@ public class fragment_groups extends Fragment {
     //List<ProfessorNetwork> groupClasses=new ArrayList<>();
     public static List<GroupClass> groupClasses = new ArrayList<>();
     public static List<String> groupClassesNames = new ArrayList<>();
+    public static List<Integer> groupClassesID = new ArrayList<>();
     FloatingActionButton addNewGroupFOB;
     FloatingActionButton addExistGroupFOB;
     FirebaseFirestore db;
@@ -60,6 +61,8 @@ public class fragment_groups extends Fragment {
         addNewGroupFOB = view.findViewById(R.id.addNewGroupFloatingActionButton);
         addExistGroupFOB = view.findViewById(R.id.addExistGroupFloatingActionButton);
         groupClasses.clear();
+        groupClassesNames.clear();
+        groupClassesID.clear();
 
         db.collection("Groups").whereEqualTo("creator", mAuth.getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
@@ -80,6 +83,7 @@ public class fragment_groups extends Fragment {
 
                 for (GroupClass groupClass : groupClasses) {
                     groupClassesNames.add(groupClass.getName());
+                    groupClassesID.add(Integer.parseInt(groupClass.getUid()));
                 }
             }
         });
