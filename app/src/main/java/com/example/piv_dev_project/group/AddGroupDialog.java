@@ -9,28 +9,45 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import com.example.piv_dev_project.R;
+import com.example.piv_dev_project.lesson.GroupClass;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Random;
 
 public class AddGroupDialog extends AppCompatDialogFragment {
 
     private TextInputEditText nameNewGroup;
     private String nameNewGroupStr;
     FirebaseFirestore db;
+    FirebaseAuth mAuth;
+
 
     private AddGroupDialog.AddFriendListener listener;
-
+    String name;
+    String uid;
+    List<GroupClass> groups=new ArrayList<>();
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         db = FirebaseFirestore.getInstance();
+        mAuth=FirebaseAuth.getInstance();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
         LayoutInflater inflater = getActivity().getLayoutInflater();
@@ -49,18 +66,19 @@ public class AddGroupDialog extends AppCompatDialogFragment {
                     //тут инициализация имейла друга
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        nameNewGroupStr = Objects.requireNonNull(nameNewGroup.getText()).toString();
-                        class Lol{
-                            String friend;
+                        nameNewGroupStr = nameNewGroup.getText().toString();
+                        Random random = new Random();
+                        int randomNumber = random.nextInt(89999) + 10000;
+                        Map<String, Object> dataGroup = new HashMap<>();
+                        dataGroup.put("name",nameNewGroupStr);
+                        dataGroup.put("creator",mAuth.getCurrentUser().getUid());
+                        dataGroup.put("uid",String.valueOf(randomNumber));
 
-                            public String getFriend() {
-                                return friend;
-                            }
-                            Lol(String friend){
-                                this.friend =friend;
-                            }
-                        }
-                        Lol ab= new Lol(nameNewGroupStr.toString());
+                       db.collection("Groups").document(String.valueOf(randomNumber)).set(dataGroup);
+
+
+
+
 
                         //db.collection("friends"+ MainActivity.getUser().getUser().getUid().toString()).add(ab);
 
