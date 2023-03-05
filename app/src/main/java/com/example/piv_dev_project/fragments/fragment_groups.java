@@ -60,6 +60,7 @@ public class fragment_groups extends Fragment {
         addNewGroupFOB = view.findViewById(R.id.addNewGroupFloatingActionButton);
         addExistGroupFOB = view.findViewById(R.id.addExistGroupFloatingActionButton);
         groupClasses.clear();
+        groupClassesNames.clear();
 
         db.collection("Groups").whereEqualTo("creator", mAuth.getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
