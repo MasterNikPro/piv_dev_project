@@ -32,7 +32,7 @@ public class fragment_main extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         lessonList=view.findViewById(R.id.lesson_list);
-        MainAdapter adapter = new MainAdapter(getActivity(), CreateLessonActivity().g);
+        MainAdapter adapter = new MainAdapter(getActivity(), new ArrayList<LessonClass>());
 
         FloatingActionButton calendarFOB = view.findViewById(R.id.mainFloatingActionButton);
 
