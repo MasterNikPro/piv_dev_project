@@ -4,9 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
     <LinearLayout
+        android:background="@drawable/customshape"
         android:layout_width="match_parent"
         android:layout_height="87dp"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/group_name"
             android:layout_width="wrap_content"
@@ -14,6 +16,7 @@
             android:layout_marginLeft="12dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="2dp"
+            android:fontFamily="@font/roboto_slab"
             android:padding="2dp"
             android:text="Medium Text"
             android:textAppearance="?android:attr/textAppearanceMedium"
@@ -22,19 +25,18 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
-
-
                 android:id="@+id/copy"
-android:onClick="copy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="8dp"
-                android:text="copy"
+                android:fontFamily="@font/roboto_slab_light"
+                android:onClick="copy"
 
-                />
+                android:text="Копіювати посилання" />
 
             <TextView
                 android:id="@+id/delete"
@@ -42,9 +44,10 @@ android:onClick="copy"
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="8dp"
-                android:onClick="delete"
                 android:layout_marginRight="12dp"
-                android:text="Delete" />
+                android:fontFamily="@font/roboto_slab_light"
+                android:onClick="delete"
+                android:text="Видалити" />
         </RelativeLayout>
 
     </LinearLayout>
