@@ -43,6 +43,9 @@ public class LessonClass {
     public String getMapsLink() {
         return mapsLink;
     }
+    public LessonClass(){
+
+    }
     public LessonClass(String lesson, String room, String description, String date, String time, String group, String mapsLink) {
 
         this.lesson = lesson;

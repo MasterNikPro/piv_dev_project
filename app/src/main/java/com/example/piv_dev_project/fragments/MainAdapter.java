@@ -37,7 +37,11 @@ public class MainAdapter extends ArrayAdapter<LessonClass> {
         groupname=listItem.findViewById(R.id.group);
         time=listItem.findViewById(R.id.time);
         date=listItem.findViewById(R.id.date);
-
+        subject.setText(data.get(position).getLesson());
+        room.setText(data.get(position).getRoom());
+        groupname.setText(data.get(position).getGroup());
+        time.setText(data.get(position).getTime());
+        date.setText(data.get(position).getDate());
 
 
         return listItem;

@@ -131,6 +131,7 @@ public class CreateLessonActivity extends AppCompatActivity {
                         Map<String,Object> map= document.getData();
                         Map<String,LessonClass> lessonClassMap;
                         lessonClassMap= (Map<String, LessonClass>) map.get("lessons");
+                        Log.d("loh",lessonClassMap.toString());
                         lessonClassMap.put(temp.getId(),temp);
                         map.put("lessons",lessonClassMap);
                         db.collection("Groups").document(finalGroupId).update(map);
