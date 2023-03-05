@@ -43,6 +43,39 @@ public class LessonClass {
     public String getMapsLink() {
         return mapsLink;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setLesson(String lesson) {
+        this.lesson = lesson;
+    }
+
+    public void setRoom(String room) {
+        this.room = room;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public void setMapsLink(String mapsLink) {
+        this.mapsLink = mapsLink;
+    }
+
     public LessonClass(){
 
     }
