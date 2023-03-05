@@ -9,54 +9,45 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Filterable;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.ListAdapter;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.piv_dev_project.R;
 import com.example.piv_dev_project.lesson.GroupClass;
-import com.example.piv_dev_project.user.ProfessorNetwork;
-import com.google.protobuf.Internal;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FragmentGroupAdapter extends ArrayAdapter<ProfessorNetwork> {
+public class FragmentGroupAdapter extends ArrayAdapter<GroupClass> {
 
     private final Activity context;
-    private  List<ProfessorNetwork> data = new  ArrayList<ProfessorNetwork>();
     TextView copy;
     TextView delete;
     TextView groupname;
+    private List<GroupClass> data = new ArrayList<GroupClass>();
 
-    public FragmentGroupAdapter(Activity context, List<ProfessorNetwork> data) {
-        super(context, R.layout.group_tile,data);
-        this.context=context;
-        this.data=data;
+    public FragmentGroupAdapter(Activity context, List<GroupClass> data) {
+        super(context, R.layout.group_tile, data);
+        this.context = context;
+        this.data = data;
     }
-
 
 
     public View getView(int position, View view, ViewGroup parent) {
         View listItem = view;
-        if(listItem == null)
-            listItem = LayoutInflater.from(context).inflate(R.layout.group_tile,parent,false);
-        copy= listItem.findViewById(R.id.copy);
-        delete=listItem.findViewById(R.id.delete);
-        groupname=listItem.findViewById(R.id.group_name);
-        if(data.size()>0){
-            groupname.setText(data.get(position).getGroups().get(position).getName());
-        }
+        if (listItem == null)
+            listItem = LayoutInflater.from(context).inflate(R.layout.group_tile, parent, false);
+        copy = listItem.findViewById(R.id.copy);
+        delete = listItem.findViewById(R.id.delete);
+        groupname = listItem.findViewById(R.id.group_name);
+        GroupClass groupClass = data.get(position);
+        groupname.setText(groupClass.getName());
 
         copy.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                ClipboardManager clipboard = (ClipboardManager) getSystemService(view.getContext(),ClipboardManager.class);
+            public void onClick(View view) {/*
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(view.getContext(), ClipboardManager.class);
                 ClipData clip = ClipData.newPlainText("label", data.get(position).getGroups().get(position).getUid());
-                clipboard.setPrimaryClip(clip);
+                clipboard.setPrimaryClip(clip);*/
             }
         });
         delete.setOnClickListener(new View.OnClickListener() {
