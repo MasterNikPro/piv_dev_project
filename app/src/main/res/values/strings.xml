@@ -30,4 +30,8 @@
     <string name="password_field_reg">Введіть ваш пароль</string>
     <string name="login_recovery_password_text">Забули пароль?</string>
 
+    <string name="note_view_delete_button_title_text">Видалити</string>
+    <string name="note_view_edit_button_title_text">Редагувати</string>
+    <string name="note_view_back_button_title_text">Назад</string>
+
 </resources>
