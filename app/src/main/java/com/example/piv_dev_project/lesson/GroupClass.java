@@ -8,7 +8,7 @@ public class GroupClass {
     private  String name;
     private  String uid;
     private  String creator;
-    public Map<Long, LessonClass> lessons = new HashMap<>();
+    public Map<String, LessonClass> lessons;
 
     public GroupClass(String name, String uid, String creator) {
         this.name = name;

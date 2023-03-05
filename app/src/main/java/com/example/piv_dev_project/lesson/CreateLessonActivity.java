@@ -1,5 +1,6 @@
 package com.example.piv_dev_project.lesson;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -7,6 +8,7 @@ import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,12 +21,19 @@ import android.widget.TextView;
 import com.example.piv_dev_project.MainActivity;
 import com.example.piv_dev_project.R;
 import com.example.piv_dev_project.fragments.fragment_groups;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CreateLessonActivity extends AppCompatActivity {
     TextInputEditText title;
@@ -38,6 +47,7 @@ public class CreateLessonActivity extends AppCompatActivity {
     Button add;
     TextView cancel;
     FirebaseFirestore db;
+    FirebaseAuth mAuth;
     Calendar dateAndTime = Calendar.getInstance();
     DatePickerDialog.OnDateSetListener d = new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -68,6 +78,7 @@ public class CreateLessonActivity extends AppCompatActivity {
         add=findViewById(R.id.add_note_save_note_button);
         cancel=findViewById(R.id.add_note_cancel_text_view);
         db = FirebaseFirestore.getInstance();
+        mAuth=FirebaseAuth.getInstance();
         time = findViewById(R.id.add_node_time_view_id);
         date = findViewById(R.id.add_node_date_view_id);
         room=findViewById(R.id.add_note_location_edit_text_view_id);
@@ -96,7 +107,7 @@ public class CreateLessonActivity extends AppCompatActivity {
         String groupId = "";
         if (lessonSpinnerAdapter.getCheckedGroups().size() != 0) {
             for (int i = 0; i < lessonSpinnerAdapter.getCheckedGroups().size(); i++) {
-                groupName += lessonSpinnerAdapter.getCheckedGroups().get(i) + ",";
+                groupName += lessonSpinnerAdapter.getCheckedGroups().get(i);
             }
 
             for (GroupClass groupClass : fragment_groups.groupClasses) {
@@ -106,9 +117,35 @@ public class CreateLessonActivity extends AppCompatActivity {
             }
         }
 
+        Log.d("idishnik", groupId+"="+groupName);
 
         LessonClass temp = new LessonClass(title.getText().toString(),room.getText().toString(),description.getText().toString(),date.getText().toString(),time.getText().toString(),groupName,link.getText().toString());
        // db.collection(MainActivity.getUser().getUser().getUid()).add(addingElement);
+        String finalGroupId = groupId;
+        db.collection("Groups").whereEqualTo("uid",groupId).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Log.d("Loh", document.getId() + " => " + document.getData());
+                        Map<String,Object> map= document.getData();
+                        Map<String,LessonClass> lessonClassMap;
+                        lessonClassMap= (Map<String, LessonClass>) map.get("lessons");
+                        lessonClassMap.put(temp.getId(),temp);
+                        map.put("lessons",lessonClassMap);
+                        db.collection("Groups").document(finalGroupId).update(map);
+                       // lessonClassMap=map.get();
+                       // map.get();
+                           // groupClasses.add(document.toObject(GroupClass.class));
+
+                    }
+                } else {
+                    Log.d("TAG", "Error getting documents: ", task.getException());
+                }
+
+            }
+        });
+
         Intent intent = new Intent(CreateLessonActivity.this, MainActivity.class);
         startActivity(intent);
 

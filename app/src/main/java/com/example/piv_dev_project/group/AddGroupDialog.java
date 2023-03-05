@@ -74,6 +74,7 @@ public class AddGroupDialog extends AppCompatDialogFragment {
                         dataGroup.put("name",nameNewGroupStr);
                         dataGroup.put("creator",mAuth.getCurrentUser().getUid());
                         dataGroup.put("uid",String.valueOf(randomNumber));
+                        dataGroup.put("lessons",new HashMap<>());
 
                         db.collection("Groups").document(String.valueOf(randomNumber)).set(dataGroup);
 
