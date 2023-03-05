@@ -13,11 +13,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 
 import com.example.piv_dev_project.R;
+import com.example.piv_dev_project.lesson.GroupClass;
+import com.example.piv_dev_project.user.ProfessorNetwork;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
@@ -28,6 +36,7 @@ public class AddExistGroupDialog extends AppCompatDialogFragment {
     private String idExistGroupStr;
     FirebaseFirestore db;
     FirebaseAuth mAuth;
+    List<ProfessorNetwork> groupClasses=new ArrayList<>();
 
     private AddFriendListener listener;
 
@@ -56,21 +65,6 @@ public class AddExistGroupDialog extends AppCompatDialogFragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         idExistGroupStr = Objects.requireNonNull(idExistGroup.getText()).toString();
-                        Map<String, Object> data = new HashMap<>();
-                        int randomNum = new Random().nextInt((99999 - 10000) + 1) + 10000;
-                        data.put("uid", randomNum);
-                        data.put("name",idExistGroupStr);
-                        db.collection(""+randomNum).document().collection("Group").add(data);
-
-                       // db.collection(mAuth.getCurrentUser().getUid()).document("professor").collection("info").
-                        //db.collection(""+randomNum).add(data);
-
-                        //db.collection("friends"+ MainActivity.getUser().getUser().getUid().toString()).add(ab);
-
-                        //MainActivity.navCo.navigate(R.id.friends);
-                        //listener.applyText(newFriend);
-                        //FriendsFragment.addFriend(newFriend);
-
                     }
                 });
 

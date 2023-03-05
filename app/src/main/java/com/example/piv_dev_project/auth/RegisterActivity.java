@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.piv_dev_project.MainActivity;
 import com.example.piv_dev_project.R;
+import com.example.piv_dev_project.lesson.GroupClass;
 import com.example.piv_dev_project.user.ProfessorNetwork;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -63,13 +64,12 @@ public class RegisterActivity extends AppCompatActivity {
 
                                 Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                                 // intent.putExtra("professorname",name_professor.getText());
-                                ProfessorNetwork tempprof = new ProfessorNetwork(name_professor.getTransitionName(), mAuth.getCurrentUser().getUid().toString(), new ArrayList<>());
+                                ProfessorNetwork tempprof = new ProfessorNetwork(name_professor.getText().toString(), mAuth.getCurrentUser().getUid().toString(), new ArrayList<>());
                                 Map<String, Object> data = new HashMap<>();
                                 data.put("name", tempprof.getName());
                                 data.put("uid", tempprof.getId());
-                                data.put("groupsname", new ArrayList<String>());
-                                data.put("groupuid", new ArrayList<Integer>());
-                                db.collection(mAuth.getCurrentUser().getUid()).document("professor").collection("info").add(data);
+                                data.put("groups", new ArrayList<GroupClass>());
+                                db.collection(mAuth.getCurrentUser().getUid()).document("professor").set(data);
                                 startActivity(intent);
                             } else {
                                 Log.w(TAG, "createUserWithEmail:failure", task.getException());

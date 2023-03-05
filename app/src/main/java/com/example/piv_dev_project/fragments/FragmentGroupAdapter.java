@@ -21,12 +21,13 @@ import com.example.piv_dev_project.lesson.GroupClass;
 import com.example.piv_dev_project.user.ProfessorNetwork;
 import com.google.protobuf.Internal;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentGroupAdapter extends ArrayAdapter<ProfessorNetwork> {
 
     private final Activity context;
-    private List<ProfessorNetwork> data;
+    private  List<ProfessorNetwork> data = new  ArrayList<ProfessorNetwork>();
     TextView copy;
     TextView delete;
     TextView groupname;
@@ -46,7 +47,7 @@ public class FragmentGroupAdapter extends ArrayAdapter<ProfessorNetwork> {
         copy= listItem.findViewById(R.id.copy);
         delete=listItem.findViewById(R.id.delete);
         groupname=listItem.findViewById(R.id.group_name);
-        if(!data.get(position).getGroups().get(position).getName().isEmpty()){
+        if(data.size()>0){
             groupname.setText(data.get(position).getGroups().get(position).getName());
         }
 

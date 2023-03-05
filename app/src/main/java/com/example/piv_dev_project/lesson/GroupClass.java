@@ -5,6 +5,7 @@ import java.util.List;
 public class GroupClass {
     String name;
     String uid;
+    String creator;
 
     public String getName() {
         return name;
@@ -14,10 +15,13 @@ public class GroupClass {
         return uid;
     }
 
-    public GroupClass(String name, String uid) {
-        this.name = name;
-        this.uid = uid;
+    public String getCreator() {
+        return creator;
     }
 
-
+    public GroupClass(String name, String uid, String creator) {
+        this.name = name;
+        this.uid = uid;
+        this.creator = creator;
+    }
 }

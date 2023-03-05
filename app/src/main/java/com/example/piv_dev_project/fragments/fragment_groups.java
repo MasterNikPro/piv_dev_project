@@ -2,6 +2,7 @@ package com.example.piv_dev_project.fragments;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -17,7 +18,9 @@ import com.example.piv_dev_project.group.AddExistGroupDialog;
 import com.example.piv_dev_project.group.AddGroupDialog;
 import com.example.piv_dev_project.lesson.GroupClass;
 import com.example.piv_dev_project.user.ProfessorNetwork;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -25,7 +28,9 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 
@@ -53,26 +58,18 @@ public class fragment_groups extends Fragment {
         groupList= view.findViewById(R.id.groups_list_page);
         addNewGroupFOB = view.findViewById(R.id.addNewGroupFloatingActionButton);
         addExistGroupFOB = view.findViewById(R.id.addExistGroupFloatingActionButton);
-        db.collection(mAuth.getCurrentUser().getUid()).document("professor").collection("info").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+        db.collection("Groups").whereEqualTo("creator",mAuth.getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
-            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
-                    // Access data in documentSnapshot
-                    String name = documentSnapshot.getString("name");
-                    String  uid = documentSnapshot.getString("uid");
-                    List<String> names= (List<String>) documentSnapshot.get("groupsname");
-                    List<String> uids= (List<String>) documentSnapshot.get("groupuid");
-                    List<GroupClass> groups=new ArrayList<>();
-                        for (int i = 0; i< (names != null ? Objects.requireNonNull(names).size() : 0); i++){
-                        assert uids != null;
-                        groups.add(new GroupClass(names.get(i),uids.get(i)));
+            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                if (task.isSuccessful()) {
+                    for (QueryDocumentSnapshot document : task.getResult()) {
+                        Log.d("Loh", document.getId() + " => " + document.getData());
                     }
-                    groupClasses.add(new ProfessorNetwork(name,uid,groups));
-                    // ...
+                } else {
+                    Log.d("TAG", "Error getting documents: ", task.getException());
                 }
             }
         });
-
             FragmentGroupAdapter adapter= new FragmentGroupAdapter(getActivity(),  groupClasses);
             groupList.setAdapter(adapter);
 

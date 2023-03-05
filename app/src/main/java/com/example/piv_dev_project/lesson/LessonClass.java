@@ -7,7 +7,6 @@ public class LessonClass {
     String date;
     String time;
     String mapsLink;
-
     public LessonClass(String lesson, String title, String room, String date, String time, String mapsLink) {
         this.lesson = lesson;
         this.title = title;
