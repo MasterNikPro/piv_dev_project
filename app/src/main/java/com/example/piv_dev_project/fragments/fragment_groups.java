@@ -29,7 +29,8 @@ import java.util.List;
 
 public class fragment_groups extends Fragment {
     //List<ProfessorNetwork> groupClasses=new ArrayList<>();
-    static List<GroupClass> groupClasses = new ArrayList<>();
+    public static List<GroupClass> groupClasses = new ArrayList<>();
+    public static List<String> groupClassesNames = new ArrayList<>();
     FloatingActionButton addNewGroupFOB;
     FloatingActionButton addExistGroupFOB;
     FirebaseFirestore db;
@@ -76,6 +77,10 @@ public class fragment_groups extends Fragment {
 
                 FragmentGroupAdapter adapter = new FragmentGroupAdapter(getActivity(), groupClasses);
                 groupList.setAdapter(adapter);
+
+                for (GroupClass groupClass : groupClasses) {
+                    groupClassesNames.add(groupClass.getName());
+                }
             }
         });
 
