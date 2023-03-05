@@ -60,6 +60,7 @@ public class fragment_main extends Fragment {
                         Log.d("Tagic", String.valueOf(lessonClassMap));
                         String hashMapToString = lessonClassMap.toString();
                         Log.d("Tagic", hashMapToString);
+                        
 
 
                         HashMap<String, HashMap<String, String>> parsedData = new HashMap<>();
