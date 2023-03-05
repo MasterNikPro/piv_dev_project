@@ -16,6 +16,7 @@ import android.view.View;
 import com.example.piv_dev_project.MainActivity;
 import com.example.piv_dev_project.R;
 import com.example.piv_dev_project.lesson.GroupClass;
+import com.example.piv_dev_project.lesson.LessonClass;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -74,6 +75,8 @@ public class AddGroupDialog extends AppCompatDialogFragment {
                         dataGroup.put("name",nameNewGroupStr);
                         dataGroup.put("creator",mAuth.getCurrentUser().getUid());
                         dataGroup.put("uid",String.valueOf(randomNumber));
+                       // HashMap<String, LessonClass> lessons= new HashMap<>();
+                       // lessons.put("111",new LessonClass("","","","","","",""));
                         dataGroup.put("lessons",new HashMap<>());
 
                         db.collection("Groups").document(String.valueOf(randomNumber)).set(dataGroup);
