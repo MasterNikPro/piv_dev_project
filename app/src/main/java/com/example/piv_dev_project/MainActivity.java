@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     static FirebaseUser currentUser;
     private Toolbar toolbar;
     private BottomNavigationView bottomNavigationView;
-    private static NavController navCo;
+    public static NavController navCo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

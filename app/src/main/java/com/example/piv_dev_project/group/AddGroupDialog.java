@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
+import com.example.piv_dev_project.MainActivity;
 import com.example.piv_dev_project.R;
 import com.example.piv_dev_project.lesson.GroupClass;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -74,8 +75,9 @@ public class AddGroupDialog extends AppCompatDialogFragment {
                         dataGroup.put("creator",mAuth.getCurrentUser().getUid());
                         dataGroup.put("uid",String.valueOf(randomNumber));
 
-                       db.collection("Groups").document(String.valueOf(randomNumber)).set(dataGroup);
+                        db.collection("Groups").document(String.valueOf(randomNumber)).set(dataGroup);
 
+                        MainActivity.navCo.navigate(R.id.fragment_groups);
 
 
 

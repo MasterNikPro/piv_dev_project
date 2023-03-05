@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.piv_dev_project.R;
@@ -38,19 +39,27 @@ public class fragment_groups extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_groups, container, false);
+        groupList = view.findViewById(R.id.groups_list_page);
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
-        groupList = view.findViewById(R.id.groups_list_page);
+
         addNewGroupFOB = view.findViewById(R.id.addNewGroupFloatingActionButton);
         addExistGroupFOB = view.findViewById(R.id.addExistGroupFloatingActionButton);
         groupClasses.clear();
+
         db.collection("Groups").whereEqualTo("creator", mAuth.getCurrentUser().getUid()).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
@@ -64,10 +73,12 @@ public class fragment_groups extends Fragment {
                 } else {
                     Log.d("TAG", "Error getting documents: ", task.getException());
                 }
+
+                FragmentGroupAdapter adapter = new FragmentGroupAdapter(getActivity(), groupClasses);
+                groupList.setAdapter(adapter);
             }
         });
-        FragmentGroupAdapter adapter = new FragmentGroupAdapter(getActivity(), groupClasses);
-        groupList.setAdapter(adapter);
+
 
 
         addNewGroupFOB.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +94,7 @@ public class fragment_groups extends Fragment {
                 openAddExistGroupDialog();
             }
         });
-        return view;
+
     }
 
     private void openAddExistGroupDialog() {
